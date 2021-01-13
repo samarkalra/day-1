@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+}
+
+#input-wrapper {
+    text-align: center;
+    margin-top: 10%;
+}
+#input-wrapper > input {
+    font-size: 32px;
+    margin-right: 12px;
+    padding: 12px 24px;
+}
+#input-wrapper > input:last-of-type {
+    margin-right: 0;
+}
+#btn-wrapper {
+    text-align: center;
+    margin-top: 2%;
+}
+#btn-wrapper > button {
+    font-size: 28px;
+    margin-right: 12px;
+    padding: 12px 24px;
+    cursor: pointer;
+}
+#btn-wrapper > button:last-of-type {
+    margin-right: 0;
+}
+#outputField:hover {
+    cursor: not-allowed;
+}
