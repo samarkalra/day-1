@@ -24,7 +24,7 @@ const sum = (arr) => {
 const median = (arr) => {
     const sortedArray = up(arr)
     const mid = Math.floor(sortedArray.length / 2)
-    //if even no. of elements the median will be average of two middle values
+    //if even no. of elements then median will be average of two middle values
     if(sortedArray.length % 2 === 0) {
         return (sortedArray[mid-1] + sortedArray[mid]) / 2
     } else { //if odd no of values then the middle value is the median
