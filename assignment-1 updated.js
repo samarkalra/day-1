@@ -14,25 +14,25 @@ inputField.addEventListener('input', () => {
 })
 
 upButton.addEventListener('click', () => {
-    console.log(up(arr))
+    alert(up(arr))
 })
 downButton.addEventListener('click', () => {
-    console.log(down(arr))
+    alert(down(arr))
 })
 minButton.addEventListener('click', () => {
-    console.log(min(arr))
+    alert(`Min = ${min(arr)}`)
 })
 maxButton.addEventListener('click', () => {
-    console.log(max(arr))
+    alert(`Max = ${max(arr)}`)
 })
 medianButton.addEventListener('click', () => {
-    console.log(median(arr))
+    alert(`Median = ${median(arr)}`)
 })
 meanButton.addEventListener('click', () => {
-    console.log(mean(arr))
+    alert(`Mean = ${mean(arr)}`)
 })
 stdButton.addEventListener('click', () => {
-    console.log(stdev(arr))
+    alert(`Standard Deviation = ${stdev(arr)}`)
 })
 
 const up = (arr) => {
