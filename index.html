@@ -4,17 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/stylesheet.css">
 </head>
 <body>
-    <input id="inputField" type="text" placeholder="enter values">
-    <button id="btn1" type="button">up</button>
-    <button id="btn2" type="button">down</button>
-    <button id="btn3" type="button">min</button>
-    <button id="btn4" type="button">max</button>
-    <button id="btn5" type="button">median</button>
-    <button id="btn6" type="button">mean</button>
-    <button id="btn7" type="button">standard deviation</button>
-
+    <div id="input-wrapper">
+        <input id="inputField" type="text" placeholder="enter space seperated values">
+        <input id="outputField" type="text" placeholder="output" disabled>
+    </div>
+    <div id= "btn-wrapper">
+        <button id="btn-up" type="button">up</button>
+        <button id="btn-down" type="button">down</button>
+        <button id="btn-max" type="button">max</button>
+        <button id="btn-min" type="button">min</button>
+        <button id="btn-sum" type="button">sum</button>
+        <button id="btn-median" type="button">median</button>
+        <button id="btn-mean" type="button">mean</button>
+        <button id="btn-stdev" type="button">standard deviation</button>
+        <button id="btn-reset" type="button">reset</button>
+    </div>
     <script src="/assignment-1 updated.js"></script>
 </body>
 </html>
