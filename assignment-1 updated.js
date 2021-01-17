@@ -152,12 +152,7 @@ const median = (arr) => {
             up(arr)
         }
         const mid = Math.floor(upResult.length / 2)
-        //if even no. of elements then median will be average of two middle values
-        if(upResult.length % 2 === 0) {
-            medianResult = (upResult[mid-1] + upResult[mid]) / 2
-        } else {//if odd no of values then the middle value is the median
-            medianResult = upResult[mid]
-        }
+        medianResult = (upResult.length === 0) ? (upResult[mid-1] + upResult[mid]) / 2 : upResult[mid]
     }
 }
 const mean = (arr) => {
