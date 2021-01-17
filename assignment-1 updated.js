@@ -46,7 +46,7 @@ upButton.addEventListener('click', () => {
     if(arr.length === 0) {
         alert("Enter values first")
     } else {
-        upResult = up(arr)
+        up(arr)
         outputField.value = upResult
     }
 })
@@ -54,7 +54,7 @@ downButton.addEventListener('click', () => {
     if(arr.length === 0) {
         alert("Enter values first")
     } else {
-        downResult = down(arr)
+        down(arr)
         outputField.value = downResult
     }
 })
@@ -62,7 +62,7 @@ maxButton.addEventListener('click', () => {
     if(arr.length === 0) {
         alert("Enter values first")
     } else {
-        maxResult = max(arr)
+        max(arr)
         outputField.value = maxResult
     }
 })
@@ -70,7 +70,7 @@ minButton.addEventListener('click', () => {
     if(arr.length === 0) {
         alert("Enter values first")
     } else {
-        minResult = min(arr)
+        min(arr)
         outputField.value = minResult
     }
 })
@@ -78,7 +78,7 @@ sumButton.addEventListener('click', () => {
     if(arr.length === 0) {
         alert("Enter values first")
     } else {
-        sumResult = sum(arr)
+        sum(arr)
         outputField.value = sumResult
     }
 })
@@ -86,7 +86,7 @@ medianButton.addEventListener('click', () => {
     if(arr.length === 0) {
         alert("Enter values first")
     } else {
-        medianResult = median(arr)
+        median(arr)
         outputField.value = medianResult
     }
 })
@@ -94,7 +94,7 @@ meanButton.addEventListener('click', () => {
     if(arr.length === 0) {
         alert("Enter values first")
     } else {
-        meanResult = mean(arr)
+        mean(arr)
         outputField.value = meanResult
     }
 })
@@ -102,7 +102,7 @@ stdevButton.addEventListener('click', () => {
     if(arr.length === 0) {
         alert("Enter values first")
     } else {
-        stdevResult = stdev(arr)
+        stdev(arr)
         outputField.value = stdevResult
     }
 })
@@ -115,12 +115,11 @@ resetButton.addEventListener('click', () => {
 
 //function implementations
 const up = (arr) => {
-    if(upResult === null && arr.length !== 0) {
+    if(upResult === null) {
         upResult = [...arr.sort((a, b) => {
             return a-b
         })]
     }
-    return upResult
 }
 const down = (arr) => {
     if(downResult === null) {
@@ -128,51 +127,55 @@ const down = (arr) => {
             return b-a
         })]
     }
-    return downResult
 }
 const max = (arr) => {
     if(maxResult === null) {
-        return Math.max(...arr)
-    } else {
-        return maxResult
+        maxResult = Math.max(...arr)
     }
 }
 const min = (arr) => {
     if(minResult === null) {
-        return Math.min(...arr)
-    } else {
-        return minResult
+        minResult = Math.min(...arr)
     }
 }
 const sum = (arr) => {
     if(sumResult === null) {
         let sum = 0
-        const result = arr.reduce((acc, item) => {
+        sumResult = arr.reduce((acc, item) => {
             return acc + item
         })
-        return result
-    } else {
-        return sumResult
-    }
+    } 
 }
 const median = (arr) => {
-    const sortedArray = up(arr)
-    const mid = Math.floor(sortedArray.length / 2)
-    //if even no. of elements then median will be average of two middle values
-    if(sortedArray.length % 2 === 0) {
-        return (sortedArray[mid-1] + sortedArray[mid]) / 2
-    } else {//if odd no of values then the middle value is the median
-        return sortedArray[mid]
+    if(medianResult === null) {
+        if(upResult === null) {
+            up(arr)
+        }
+        const mid = Math.floor(upResult.length / 2)
+        //if even no. of elements then median will be average of two middle values
+        if(upResult.length % 2 === 0) {
+            medianResult = (upResult[mid-1] + upResult[mid]) / 2
+        } else {//if odd no of values then the middle value is the median
+            medianResult = upResult[mid]
+        }
     }
 }
 const mean = (arr) => {
-    const sumOfArray = sum(arr)
-    return (sumOfArray / arr.length).toFixed(3) //to print mean upto 3 decimal points
+    if(meanResult === null) {
+        if(sumResult === null) {
+            sum(arr)
+        }
+        meanResult = (sumResult / arr.length).toFixed(3) //to print mean upto 3 decimal points
+    }
 }
 const stdev = (arr) => {
-    const m = mean(arr)
-    const result = arr.reduce((acc, item) => {
-        return acc + Math.pow(item - m, 2)
-    }, 0) 
-    return (Math.sqrt(result / arr.length)).toFixed(3)
+    if(stdevResult === null) {
+        if(meanResult === null) {
+            mean(arr)
+        }   
+        stdevResult = arr.reduce((acc, item) => {
+            return acc + Math.pow(item - meanResult, 2)
+        }, 0) 
+        stdevResult = (Math.sqrt(stdevResult / arr.length)).toFixed(3)
+    }
 }
